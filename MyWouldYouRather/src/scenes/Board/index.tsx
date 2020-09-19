@@ -1,18 +1,11 @@
 // Ref app: https://apkpure.com/es/would-you-rather/macrostudios.wouldyourather#macrostudios.wouldyourather-3
 
 import React from 'react'
-import {
-  SafeAreaView,
-  Text,
-  StatusBar,
-  TouchableHighlight,
-  View,
-} from 'react-native'
+import { SafeAreaView, Text, StatusBar, View } from 'react-native'
 
 import { styles } from './styles'
 import { strings } from 'src/scenes/Board/strings'
-import { Palette } from 'src/styles/Color'
-import { noop } from 'lodash'
+import { ButtonChoice, Theme } from 'src/scenes/Board/ButtonChoice'
 
 declare const global: { HermesInternal: null | {} }
 
@@ -23,13 +16,8 @@ export const Board = () => {
       <SafeAreaView style={styles.board}>
         <Text style={styles.header}>{strings.header}</Text>
         <View style={styles.optionsContainer}>
-          <TouchableHighlight
-            style={styles.singleOptionContainer}
-            activeOpacity={0.2}
-            underlayColor={Palette.Option1Pressed}
-            onPress={noop}>
-            <Text style={styles.optionText}>{'Question 1'}</Text>
-          </TouchableHighlight>
+          <ButtonChoice text={'Question 1'} theme={Theme.Primary} />
+          <ButtonChoice text={'Question 2'} theme={Theme.Secondary} />
         </View>
       </SafeAreaView>
     </>

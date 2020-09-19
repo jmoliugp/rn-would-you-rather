@@ -8,7 +8,7 @@ export const Palette = {
   Option1: redWithAlpha(),
   Option1Pressed: redWithAlpha(0.6),
   Option2: blueWithAlpha(),
-  Option2Pressed: blueWithAlpha(0.4),
+  Option2Pressed: blueWithAlpha(0.6),
   Text: Color.White,
 }
 
