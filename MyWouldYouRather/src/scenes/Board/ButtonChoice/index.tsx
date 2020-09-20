@@ -12,7 +12,7 @@ export enum Option {
 }
 
 interface Props {
-  frequency?: string
+  frequency?: number
   selectedChoice?: Option
   setChoice: (option: Option) => void
   text: string
@@ -49,7 +49,9 @@ export const ButtonChoice = ({
       onPress={onAction}>
       <View style={styles.container}>
         <View style={styles.header}>
-          {selectedChoice && <Text style={styles.optionText}>{frequency}</Text>}
+          {selectedChoice && (
+            <Text style={styles.optionText}>{`${frequency}%`}</Text>
+          )}
           {isSelected && <Text style={styles.optionText}>✓</Text>}
         </View>
         <View style={styles.content}>
