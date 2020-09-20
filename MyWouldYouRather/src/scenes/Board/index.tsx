@@ -5,7 +5,8 @@ import { SafeAreaView, Text, StatusBar, View } from 'react-native'
 
 import { styles } from './styles'
 import { strings } from 'src/scenes/Board/strings'
-import { ButtonChoice, Theme } from 'src/scenes/Board/ButtonChoice'
+import { ButtonChoice, Option } from 'src/scenes/Board/ButtonChoice'
+import { noop } from 'lodash'
 
 declare const global: { HermesInternal: null | {} }
 
@@ -16,8 +17,18 @@ export const Board = () => {
       <SafeAreaView style={styles.board}>
         <Text style={styles.header}>{strings.header}</Text>
         <View style={styles.optionsContainer}>
-          <ButtonChoice text={'Question 1'} theme={Theme.Primary} />
-          <ButtonChoice text={'Question 2'} theme={Theme.Secondary} />
+          <ButtonChoice
+            frequency={'80%'}
+            onAction={noop}
+            text={'Question 1'}
+            option={Option.A}
+          />
+          <ButtonChoice
+            frequency={'20%'}
+            onAction={noop}
+            text={'Question 2'}
+            option={Option.B}
+          />
         </View>
       </SafeAreaView>
     </>
