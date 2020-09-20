@@ -24,6 +24,7 @@ export const Board = () => {
             option={Option.A}
           />
           <ButtonChoice
+            isSelected={true}
             frequency={'20%'}
             onAction={noop}
             text={'Question 2'}
