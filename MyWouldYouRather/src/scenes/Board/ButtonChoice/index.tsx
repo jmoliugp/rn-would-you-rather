@@ -13,8 +13,8 @@ export enum Option {
 
 interface Props {
   frequency?: string
-  isSelected?: boolean
-  onAction: () => void
+  selectedChoice?: Option
+  setChoice: (option: Option) => void
   text: string
   option: Option
 }
@@ -32,12 +32,14 @@ const themeProps = {
 
 export const ButtonChoice = ({
   frequency,
-  isSelected,
-  onAction,
+  selectedChoice,
+  setChoice,
   text,
   option,
 }: Props) => {
   const { color, underlayColor } = themeProps[option]
+  const isSelected = selectedChoice === option
+  const onAction = () => setChoice(option)
 
   return (
     <TouchableHighlight
@@ -47,7 +49,7 @@ export const ButtonChoice = ({
       onPress={onAction}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.optionText}>{frequency}</Text>
+          {selectedChoice && <Text style={styles.optionText}>{frequency}</Text>}
           {isSelected && <Text style={styles.optionText}>✓</Text>}
         </View>
         <View style={styles.content}>
