@@ -15,7 +15,12 @@ export const Board = () => {
   const [questionIndex, setQuestionIndex] = useState<number>(0)
   const question = nextQuestion(questionIndex)
   const onSelection = (option: Option) => {
-    setChoice(option)
+    if (!selectedChoice) {
+      setChoice(option)
+      return
+    }
+
+    setChoice(undefined)
     setQuestionIndex(questionIndex + 1)
   }
 
