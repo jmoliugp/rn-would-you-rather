@@ -12,5 +12,5 @@ const questions = shuffledQuestions()
 
 export const nextQuestion = (id: number) => {
   const index = id % questions.length
-  return questions[index]
+  return questions[index]!
 }
